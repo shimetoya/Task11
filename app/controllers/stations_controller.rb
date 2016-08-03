@@ -15,6 +15,10 @@ class StationsController < ApplicationController
   # GET /stations/new
   def new
     @station = Station.new
+=begin
+    route = Route.find(params[:id])
+    route.stations << @station
+=end
   end
 
   # GET /stations/1/edit
