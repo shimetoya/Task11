@@ -11,19 +11,10 @@
   </thead>
 
   <tbody>
-    <% @stations.each do |station| %>
-      <tr>
-        <td><%= station.title %></td>
-        <td><%= link_to 'Show', station %></td>
-        <td><%= link_to 'Edit', edit_station_path(station) %></td>
-        <td><%= link_to 'Destroy', station, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <%= render @stations %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Station', new_station_path %>
-<p><%= link_to 'Trains list', trains_path %></p>
-<p><%= link_to 'Routes list', routes_path %></p>
+<%= link_to 'New Station', new_station_path %> | <%= link_to 'Trains list', trains_path %> | <%= link_to 'Routes list', routes_path %> | <%= link_to 'Car list', cars_path %> | <%= link_to 'Seat list', seats_path %>

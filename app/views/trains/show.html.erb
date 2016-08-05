@@ -4,6 +4,45 @@
   <strong>Number:</strong>
   <%= @train.number %>
 </p>
+<p>
+  <strong>On station:</strong>
+  <% if @train.current_station.present? %>
+    <%= @train.current_station.title  %>
+  <% else %>
+    Not indicated
+  <% end %>
+</p>
+<p>
+  <strong>On route:</strong>
+  <% if @train.current_route.present? %>
+      <%= @train.current_route.title  %>
+  <% else %>
+      The route is not assigned
+  <% end %>
+</p>
+<p>
+  <strong>Cars info:</strong>
+  <% if @train.cars.present? %>
+    <ol>
+      <% @train.cars.each do |car|%>
+          <li><%= car.car_type %></li>
+          <% if car.seats.present? %>
+              <% car.seats.each do |seat| %>
+                  <ul>
+                    <li>Type of seat: <%= seat.seat_type %></li>
+                    <li>Amount seats: <%= seat.amount_seats %></li>
+                  </ul>
+              <% end %>
+          <% else %>
+              The seats is not assigned
+          <% end %>
+      <% end %>
+    </ol>
+  <% else %>
+      The car is not assigned
+  <% end %>
+</p>
+
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>

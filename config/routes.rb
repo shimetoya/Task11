@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  get 'cars/index'
+
   resources :trains
   resources :stations
   resources :routes
+  resources :cars
+  resources :seats
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
