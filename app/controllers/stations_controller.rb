@@ -10,10 +10,6 @@ class StationsController < ApplicationController
 
   def new
     @station = Station.new
-=begin
-    route = Route.find(params[:id])
-    route.stations << @station
-=end
   end
 
   def edit
@@ -21,24 +17,24 @@ class StationsController < ApplicationController
 
   def create
     @station = Station.new(station_params)
-      if @station.save
-        redirect_to @station, notice: 'Station was successfully created.'
-      else
-        render :new
-      end
+    if @station.save
+      redirect_to @station, notice: 'Station was successfully created.'
+    else
+      render :new
+    end
   end
 
   def update
-      if @station.update(station_params)
-        redirect_to @station, notice: 'Station was successfully updated.'
-      else
-        render :edit
-      end
+    if @station.update(station_params)
+      redirect_to @station, notice: 'Station was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
     @station.destroy
-      redirect_to stations_url, notice: 'Station was successfully destroyed.'
+    redirect_to stations_url, notice: 'Station was successfully destroyed.'
   end
 
   private

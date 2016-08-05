@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @car.car_type %>
+</p>
+<p>
+  <strong>Seats info:</strong>
+  <% if @car.seats.present? %>
+    <ol>
+      <% @car.seats.each do |seat|%>
+        <ul>
+          <li>Type of seat: <%= seat.seat_type %></li>
+          <li>Amount seats: <%= seat.amount_seats %></li>
+        </ul>
+      <% end %>
+    </ol>
+  <% else %>
+    The seat is not assigned
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_car_path(@car) %> |
+<%= link_to 'Back', cars_path %>
