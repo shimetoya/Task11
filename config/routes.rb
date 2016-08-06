@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :stations
   resources :routes
   resources :cars
-  resources :seats
 
 
 

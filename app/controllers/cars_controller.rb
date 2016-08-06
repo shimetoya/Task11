@@ -43,6 +43,6 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:car_type, :train_id,:seat_type, :seat_id)
+    params.require(:car).permit(:car_type, :train_id,:amount_top_seats, :amount_bottom_seats)
   end
 end

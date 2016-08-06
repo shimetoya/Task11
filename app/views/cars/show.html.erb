@@ -6,18 +6,16 @@
 </p>
 <p>
   <strong>Seats info:</strong>
-  <% if @car.seats.present? %>
-    <ol>
-      <% @car.seats.each do |seat|%>
-        <ul>
-          <li>Type of seat: <%= seat.seat_type %></li>
-          <li>Amount seats: <%= seat.amount_seats %></li>
-        </ul>
-      <% end %>
-    </ol>
+  <% if @car.amount_top_seats.present? %>
+    <p> Amount top seats:<%= @car.amount_top_seats%>
   <% else %>
-    The seat is not assigned
+    The top seats is not assigned
   <% end %>
+  <% if @car.amount_bottom_seats.present? %>
+    <p>Amount bottom seats:<%= @car.amount_bottom_seats%>
+<% else %>
+    The seats is not assigned
+<% end %>
 </p>
 
 <%= link_to 'Edit', edit_car_path(@car) %> |

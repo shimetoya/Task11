@@ -3,24 +3,26 @@
 
     <div class="field">
       <%= f.label :car_type %><br>
-      <%= f.text_field :car_type %>
+      <%= select(:car, :car_type, [[ "Плацкарт", "Плацкарт"], ["Купе", "Купе"]]) %>
     </div>
+
+    <div class="field">
+      <%= f.label :amount_top_seats %><br>
+      <%= f.text_field :amount_top_seats %>
+    </div>
+
+    <div class="field">
+      <%= f.label :amount_bottom_seats %><br>
+      <%= f.text_field :amount_bottom_seats %>
+    </div>
+
     <div class="field">
       <%= f.label :train, "Train" %><br>
       <%= f.collection_select :train_id, Train.all, :id, :number %>
     </div>
 
-    <div class="field">
-      <%= f.label :seat, "Seat type" %><br>
-      <%= f.collection_select :seats, Seat.all, :id, :seat_type %>
-    </div>
-    <div class="field">
-      <%= f.label :seat, "Amount seats" %><br>
-      <%= f.collection_select :seats, Seat.all, :id, :amount_seats %>
-    </div>
-    <%= render 'seats/form' %>
-
     <div class="actions">
       <%= f.submit "#{ @car.new_record? ? 'Create Car' : 'Update Car'}"%>
     </div>
+
 <% end %>

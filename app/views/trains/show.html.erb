@@ -26,15 +26,15 @@
     <ol>
       <% @train.cars.each do |car|%>
           <li><%= car.car_type %></li>
-          <% if car.seats.present? %>
-              <% car.seats.each do |seat| %>
-                  <ul>
-                    <li>Type of seat: <%= seat.seat_type %></li>
-                    <li>Amount seats: <%= seat.amount_seats %></li>
-                  </ul>
-              <% end %>
+          <% if car.amount_top_seats.present? %>
+              <li>Amount top seats: <%= car.amount_top_seats %></li>
           <% else %>
-              The seats is not assigned
+              The top seats is not assigned
+          <% end %>
+          <% if car.amount_bottom_seats.present? %>
+              <li>Amount bottom seats:<%= car.amount_bottom_seats %></li>
+          <% else %>
+              The bottom seats is not assigned
           <% end %>
       <% end %>
     </ol>

@@ -11,7 +11,7 @@
   </div>
   <div class="field">
     <%= f.label :current_route, "Current route" %><br>
-    <%= f.collection_select :current_route_id, Route.all, :id, :title %>
+    <%= f.collection_select :route_id, Route.all, :id, :title %>
   </div>
 
   <div class="actions">
