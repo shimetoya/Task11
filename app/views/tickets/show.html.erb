@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Full name:</strong>
+  <%= @ticket.fio %>
+</p>
+
+<p>
+  <strong>First station:</strong>
+  <% if @ticket.first_station.present? %>
+      <%= @ticket.first_station.title %>
+  <% else %>
+      The first station is not assigned
+  <% end %>
+</p>
+
+<p>
+  <strong>Last station:</strong>
+  <% if @ticket.last_station.present? %>
+      <%= @ticket.last_station.title %>
+  <% else %>
+      The last station is not assigned
+  <% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
+<%= link_to 'Back', tickets_path %>

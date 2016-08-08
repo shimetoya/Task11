@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Tickets</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <%= render @tickets %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ticket', new_ticket_path %>
+<p></p>
+<%= link_to 'Stations list', stations_path %> | <%= link_to 'Trains list', trains_path %> | <%= link_to 'Routes list', routes_path %> | <%= link_to 'Car list', cars_path %>
