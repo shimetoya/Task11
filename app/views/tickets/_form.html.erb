@@ -7,6 +7,11 @@
     </div>
 
     <div class="field">
+      <%= f.label :train, "Train" %><br>
+      <%= f.collection_select :train_id, Train.all, :id, :number %>
+    </div>
+
+    <div class="field">
       <%= f.label :first_station, "First station" %><br>
       <%= f.collection_select :first_station_id, Station.all, :id, :title %>
     </div>

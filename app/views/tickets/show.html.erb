@@ -6,21 +6,18 @@
 </p>
 
 <p>
+  <strong>Number of train:</strong>
+  <%= @ticket.train.number %>
+</p>
+
+<p>
   <strong>First station:</strong>
-  <% if @ticket.first_station.present? %>
-      <%= @ticket.first_station.title %>
-  <% else %>
-      The first station is not assigned
-  <% end %>
+    <%= @ticket.first_station.title %>
 </p>
 
 <p>
   <strong>Last station:</strong>
-  <% if @ticket.last_station.present? %>
-      <%= @ticket.last_station.title %>
-  <% else %>
-      The last station is not assigned
-  <% end %>
+    <%= @ticket.last_station.title %>
 </p>
 
 
