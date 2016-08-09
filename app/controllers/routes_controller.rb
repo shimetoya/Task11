@@ -18,7 +18,7 @@ class RoutesController < ApplicationController
   def create
     @route = Route.new(route_params)
     if @route.save
-      redirect_to @route, notice: 'Station was successfully created.'
+      redirect_to @route, notice: 'Route was successfully created.'
     else
       render :new
     end
@@ -26,7 +26,7 @@ class RoutesController < ApplicationController
 
   def update
     if @route.update(route_params)
-      redirect_to @route, notice: 'Station was successfully updated.'
+      redirect_to @route, notice: 'Route was successfully updated.'
     else
       render :edit
     end
@@ -34,7 +34,7 @@ class RoutesController < ApplicationController
 
   def destroy
     @route.destroy
-    redirect_to routes_path, notice: 'Station was successfully destroyed.'
+    redirect_to routes_path, notice: 'Route was successfully destroyed.'
   end
 
   private

@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20160804184402) do
   end
 
   create_table "tickets", force: :cascade do |t|
+    t.string   "fio"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "user_id"
