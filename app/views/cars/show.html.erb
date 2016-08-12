@@ -6,15 +6,24 @@
 </p>
 <p>
   <strong>Seats info:</strong>
-  <% if @car.amount_top_seats.present? %>
+  <% if @car.car_type == 'coupe' %>
+    <p> Car id:<%= @car.id%>
     <p> Amount top seats:<%= @car.amount_top_seats%>
-  <% else %>
-    The top seats is not assigned
-  <% end %>
-  <% if @car.amount_bottom_seats.present? %>
     <p>Amount bottom seats:<%= @car.amount_bottom_seats%>
-<% else %>
-    The seats is not assigned
+  <% elsif @car.car_type == 'economy'%>
+    <p> Car id:<%= @car.id%>
+    <p> Amount top seats:<%= @car.amount_top_seats%>
+    <p>Amount bottom seats:<%= @car.amount_bottom_seats%>
+    <p> Amount side top seats:<%= @car.amount_side_top_seats%>
+    <p>Amount side bottom seats:<%= @car.amount_side_bottom_seats%>
+    <p> Car id:<%= @car.id%>
+  <% elsif @car.car_type == 'sv'%>
+    <p> Car id:<%= @car.id%>
+    <p>Amount bottom seats:<%= @car.amount_bottom_seats%>
+  <% elsif @car.car_type == 'sitting'%>
+    <p> Car id:<%= @car.id%>
+    <p> Car №:<%= @car.number%>
+    <p>Amount sitting seats:<%= @car.amount_sitting_seats%>
 <% end %>
 </p>
 

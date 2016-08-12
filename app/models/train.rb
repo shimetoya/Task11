@@ -6,4 +6,5 @@ class Train < ActiveRecord::Base
   has_many :cars
   #has_many :trains_routes
   #has_many :routes, through: :trains_routes
+
 end

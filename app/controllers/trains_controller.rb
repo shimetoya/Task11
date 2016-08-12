@@ -41,10 +41,11 @@ class TrainsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_train
       @train = Train.find(params[:id])
+      @orderedZ=request.query_parameters['orderedZ']
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def train_params
-      params.require(:train).permit(:number, :current_station_id, :route_id, :car,)
+      params.require(:train).permit(:number, :current_station_id, :route_id, :car, :cars)
     end
 end

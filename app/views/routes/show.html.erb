@@ -19,11 +19,11 @@
 <p>
   <strong>All station on the route:</strong>
   <% if @route.stations.present? %>
-    <ol>
+    <ul>
     <% @route.stations.each do |station|%>
-      <li><%= station.title %></li>
+          <li><p>ID <%= station.id %> № <b><% @m = @route.stations_routes.each { |n| n.station_number } %><%= @m%></b> <%= link_to 'Edit', edit_station_path(station) %> <b><%= station.title %></b></li>
     <% end %>
-    </ol>
+    </ul>
   <% else %>
     Not indicated
   <% end %>

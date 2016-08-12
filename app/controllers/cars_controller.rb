@@ -9,7 +9,7 @@ class CarsController < ApplicationController
   end
 
   def new
-    @car = Car.new
+    @car = Car.new(:car_type => "sitting")
   end
 
   def edit
@@ -43,6 +43,6 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:car_type, :train_id,:amount_top_seats, :amount_bottom_seats)
+    params.require(:car).permit(:number, :car_type, :train_id,:amount_top_seats, :amount_side_top_seats, :amount_bottom_seats, :amount_side_bottom_seats, :amount_sitting_seats)
   end
 end

@@ -14,11 +14,15 @@
 ActiveRecord::Schema.define(version: 20160804184402) do
 
   create_table "cars", force: :cascade do |t|
+    t.integer  "number"
     t.string   "car_type"
     t.integer  "amount_top_seats"
     t.integer  "amount_bottom_seats"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.integer  "amount_side_top_seats"
+    t.integer  "amount_side_bottom_seats"
+    t.integer  "amount_sitting_seats"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.integer  "train_id"
   end
 
@@ -35,8 +39,9 @@ ActiveRecord::Schema.define(version: 20160804184402) do
   end
 
   create_table "stations_routes", force: :cascade do |t|
-    t.integer "station_id"
+    t.integer "station_number"
     t.integer "route_id"
+    t.integer "station_id"
   end
 
   create_table "tickets", force: :cascade do |t|
