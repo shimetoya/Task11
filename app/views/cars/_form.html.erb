@@ -1,10 +1,12 @@
 <%= form_for(@car) do |f| %>
   <%= render 'common/errors', resourse: @car %>
-    <div class="field" >
-      <%= f.label :car_type %><br>
-      <%= select(:car, :car_type, [["sv", "sv"], ["coupe", "coupe"],[ "economy", "economy"] , ["sitting", "sitting"]], {}, :onchange=>"this.form.submit()" ) %>
-    </div>
-  <% if @car.car_type == 'coupe' %>
+    <strong>Choose cars type:</strong> <p></p>
+    <a href="new?car_type=sv" ><b>SV</b></a> OR
+    <a href="new?car_type=coupe" ><b>COUPE</b></a> OR
+    <a href="new?car_type=economy" ><b>ECONOMY</b></a> OR
+    <a href="new?car_type=sitting" ><b>SITTING</b></a>
+    <p></p>
+  <% if @car_type == 'coupe' %>
     <div class="field">
       <%= f.label :amount_top_seats %><br>
       <%= f.text_field :amount_top_seats %>
@@ -13,7 +15,7 @@
       <%= f.label :amount_bottom_seats %><br>
       <%= f.text_field :amount_bottom_seats %>
     </div>
-  <% elsif @car.car_type == 'economy'%>
+  <% elsif @car_type == 'economy'%>
     <div class="field">
       <%= f.label :amount_top_seats %><br>
       <%= f.text_field :amount_top_seats %>
@@ -29,12 +31,12 @@
       <%= f.label :amount_side_bottom_seats %><br>
       <%= f.text_field :amount_side_bottom_seats %>
     </div>
-  <% elsif @car.car_type == 'sv'%>
+  <% elsif @car_type == "sv" %>
     <div class="field">
       <%= f.label :amount_bottom_seats %><br>
       <%= f.text_field :amount_bottom_seats %>
     </div>
-  <% elsif @car.car_type == 'sitting'%>
+  <% elsif @car_type == 'sitting'%>
     <div class="field">
       <%= f.label :amount_sitting_seats %><br>
       <%= f.text_field :amount_sitting_seats %>

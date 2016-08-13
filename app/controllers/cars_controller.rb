@@ -9,7 +9,8 @@ class CarsController < ApplicationController
   end
 
   def new
-    @car = Car.new(:car_type => "sitting")
+    @car = Car.new
+    @car_type = request.query_parameters[:car_type]
   end
 
   def edit
