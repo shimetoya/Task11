@@ -17,8 +17,8 @@ class Car < ActiveRecord::Base
   end
   scope :orderedA, -> {order(number: :asc)}
   scope :orderedZ, -> {order(number: :desc)}
-  scope :economy, -> {where(type: 'EconomyCar')}
-  scope :coupe, -> {where(type: 'CoupeCar')}
+  scope :economy, -> {where(car_type: 'EconomyCar')}
+  scope :coupe, -> {where(car_type: 'CoupeCar')}
   scope :sv, -> {where(car_type: 'SVCar')}
-  scope :sitting, -> {where(type: 'SittingCar')}
+  scope :sitting, -> {where(car_type: 'SittingCar')}
 end
