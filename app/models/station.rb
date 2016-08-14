@@ -3,7 +3,9 @@ class Station < ActiveRecord::Base
 
   has_many :trains
   has_many :tickets
+=begin
   has_many :tickets
+=end
 
 
   #has_and_belongs_to_many :routes

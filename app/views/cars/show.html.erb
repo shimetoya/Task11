@@ -2,24 +2,24 @@
 
 <p>
   <strong>Type:</strong>
-  <%= @car.car_type %>
+  <%= @car.type %>
 </p>
 <p>
   <strong>Seats info:</strong>
-  <% if @car.car_type == 'CoupeCar' %>
+  <% if @car.type == 'CoupeCar' %>
     <p> Car id:<%= @car.id%>
     <p> Amount top seats:<%= @car.amount_top_seats%>
     <p>Amount bottom seats:<%= @car.amount_bottom_seats%>
-  <% elsif @car.car_type == 'EconomyCar'%>
+  <% elsif @car.type == 'EconomyCar'%>
     <p> Car id:<%= @car.id%>
     <p> Amount top seats:<%= @car.amount_top_seats%>
     <p>Amount bottom seats:<%= @car.amount_bottom_seats%>
     <p> Amount side top seats:<%= @car.amount_side_top_seats%>
     <p>Amount side bottom seats:<%= @car.amount_side_bottom_seats%>
-  <% elsif @car.car_type == 'SVCar'%>
+  <% elsif @car.type == 'SVCar'%>
     <p> Car id:<%= @car.id%>
     <p>Amount bottom seats:<%= @car.amount_bottom_seats%>
-  <% elsif @car.car_type == 'SittingCar'%>
+  <% elsif @car.type == 'SittingCar'%>
     <p> Car id:<%= @car.id%>
     <p> Car №:<%= @car.number%>
     <p>Amount sitting seats:<%= @car.amount_sitting_seats%>

@@ -10,16 +10,17 @@ class CarsController < ApplicationController
 
   def new
     @car = Car.new
-    @car_type = request.query_parameters[:car_type]
+    @type = request.query_parameters[:type]
   end
 
   def edit
+    @type = request.query_parameters[:type]
   end
 
   def create
     @car = Car.new(car_params)
     if @car.save
-      redirect_to @car, notice: 'Car was successfully created.'
+      redirect_to car_path(@car), notice: 'Car was successfully created.'
     else
       render :new
     end
@@ -44,6 +45,6 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:number, :car_type, :train_id,:amount_top_seats, :amount_side_top_seats, :amount_bottom_seats, :amount_side_bottom_seats, :amount_sitting_seats)
+    params.require(:car).permit(:number, :type, :train_id,:amount_top_seats, :amount_side_top_seats, :amount_bottom_seats, :amount_side_bottom_seats, :amount_sitting_seats)
   end
 end

@@ -1,6 +1,61 @@
 <h1>Editing Car</h1>
+<%= form_for([@car.becomes(Car)]) do |f| %>
+    <% f.object = @car.becomes(@car.class)%>
+    <%= render 'common/errors', resourse: @car %>
+    <strong>Choose cars type:</strong> <p></p>
+    <a href= "/cars/<%=@car.id%>/edit?type=SVCar" ><b>SVCar</b></a> OR
+    <a href="/cars/<%=@car.id%>/edit?type=CoupeCar" ><b>CoupeCar</b></a> OR
+    <a href="/cars/<%=@car.id%>/edit?type=EconomyCar" ><b>EconomyCar</b></a> OR
+    <a href="/cars/<%=@car.id%>/edit?type=SittingCar" ><b>SittingCar</b></a>
+    <p></p>
+    <% if @type == 'CoupeCar' %>
+        <%= f. text_field :type, :value => CoupeCar.name%>
+        <div class="field">
+          <%= f.label :amount_top_seats %><br>
+          <%= f.text_field :amount_top_seats %>
+        </div>
+        <div class="field">
+          <%= f.label :amount_bottom_seats %><br>
+          <%= f.text_field :amount_bottom_seats %>
+        </div>
+    <% elsif @type == 'EconomyCar'%>
+        <%= f. text_field :car_type, :value => EconomyCar.name%>
+        <div class="field">
+          <%= f.label :amount_top_seats %><br>
+          <%= f.text_field :amount_top_seats %>
+        </div>
+        <div class="field">
+          <%= f.label :amount_bottom_seats %><br>
+          <%= f.text_field :amount_bottom_seats %>
+        </div>    <div class="field">
+  <%= f.label :amount_side_top_seats %><br>
+  <%= f.text_field :amount_side_top_seats %>
+</div>
+        <div class="field">
+          <%= f.label :amount_side_bottom_seats %><br>
+          <%= f.text_field :amount_side_bottom_seats %>
+        </div>
+    <% elsif @type == "SVCar" %>
+        <%= f. text_field :type, :value => SVCar.name%>
+        <div class="field">
+          <%= f.label :amount_bottom_seats %><br>
+          <%= f.text_field :amount_bottom_seats %>
+        </div>
+    <% elsif @type == 'SittingCar'%>
+        <%= f. text_field :car_type, :value => SittingCar.name%>
+        <div class="field">
+          <%= f.label :amount_sitting_seats %><br>
+          <%= f.text_field :amount_sitting_seats %>
+        </div>
+    <% end %>
+    <div class="field">
+      <%= f.label :train, "Train" %><br>
+      <%= f.collection_select :train_id, Train.all, :id, :number %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @car %> |
+<%= link_to 'Show',  car_path(@car) %> |
 <%= link_to 'Back', cars_path %>
