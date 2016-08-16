@@ -1,5 +1,5 @@
 class StationsController < ApplicationController
-  before_action :set_station, only: [:show, :edit, :update, :destroy]
+  before_action :set_station, only: [:show, :edit, :update, :destroy, :update_station_number]
 
   def index
     @stations = Station.all
@@ -37,6 +37,12 @@ class StationsController < ApplicationController
     redirect_to stations_url, notice: 'Station was successfully destroyed.'
   end
 
+  def update_station_number
+    @route = Route.find(params[:route_id])
+    @station.update_station_number(@route, params[:station_number])
+    redirect_to @route
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_station
@@ -45,6 +51,6 @@ class StationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def station_params
-      params.require(:station).permit(:title, :station_number)
+      params.require(:station).permit(:title)
     end
 end

@@ -13,22 +13,6 @@
     <%= f.label :current_route, "Current route" %><br>
     <%= f.collection_select :route_id, Route.all, :id, :title %>
   </div>
-    Car:
-    <ul>
-      <%= f.fields_for :car do |cars_form| %>
-        <li>
-          <%= cars_form.label :number %>
-          <%= cars_form.text_field :number %>
-          <%= cars_form.label :car_type %>
-          <%= cars_form.text_field :car_type %>
-          <%= cars_form.label :amount_top_seats %>
-          <%= cars_form.text_field :amount_top_seats %>
-          <%= cars_form.label :amount_bottom_seats %>
-          <%= cars_form.text_field :amount_bottom_seats %>
-        </li>
-      <% end %>
-    </ul>
-
   <div class="actions">
     <%= f.submit %>
   </div>

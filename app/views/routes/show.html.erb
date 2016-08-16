@@ -19,11 +19,35 @@
 <p>
   <strong>All station on the route:</strong>
   <% if @route.stations.present? %>
-    <ul>
-    <% @route.stations.each do |station|%>
-          <li><p>ID <%= station.id %> № <b><% @m = @route.stations_routes.each { |n| n.station_number } %><%= @m%></b> <%= link_to 'Edit', edit_station_path(station) %> <b><%= station.title %></b></li>
-    <% end %>
-    </ul>
+  <table>
+  <thead>
+  <tr>
+    <td width="30px"> ID</td>
+    <td width="100px"> Title</td>
+    <td>Station number</td>
+  </tr>
+  </thead>
+  <tbody>
+    <% @route.stations.ordered.each do |station|%>
+
+      <% station.id %>
+      <tr>
+       <td>   <%= station.id %> </td>
+       <td>  <%= station.title %> </td>
+       <td>
+         <%= form_tag update_station_number_station_path(station), method: :patch do %>
+           <%= number_field_tag :station_number, station.station_number_in(@route) %>
+           <%= hidden_field_tag :route_id, @route.id %>
+           <%= submit_tag "Change" %>
+         <% end %>
+       </td>
+        <td> <%= datetime_field_tag :arrival_time, station.arrival_time_in(@route) %></td>
+        <td> <%= datetime_field_tag :departure_time, station.departure_time_in(@route) %></td>
+
+      </tr>
+      <%end%>
+  </tbody>
+  </table>
   <% else %>
     Not indicated
   <% end %>

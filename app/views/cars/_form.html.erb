@@ -1,4 +1,4 @@
-<%= form_for(@car, :as => :car, :url => {:controller => "cars",:action => "create"}) do |f| %>
+<%= form_for [@train, @car] do |f| %>
 
   <%= render 'common/errors', resourse: @car %>
   <strong>Choose cars type:</strong> <p></p>

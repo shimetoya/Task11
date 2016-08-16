@@ -11,6 +11,8 @@ class Route < ActiveRecord::Base
   validate :stations_count
 
   before_validation :set_name
+  before_save :station_number
+
 
   private
   def set_name
@@ -23,4 +25,11 @@ class Route < ActiveRecord::Base
     end
   end
 
+  def station_number
+    count = 1
+    self.stations_routes.each do |station|
+      station.station_number = count
+      count += 1
+    end
+  end
 end

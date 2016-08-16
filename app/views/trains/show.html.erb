@@ -24,24 +24,22 @@
     <label><input type="checkbox" name="orderedZ" value="true">Train tail</label>
     <input type="submit"/>
   </form>
-
   <strong>Cars info:</strong>
-  <% if @train.cars.present? %>
-    <ul>
-      <% if @orderedZ == "true" %>
-        <% @train.cars.orderedZ.each do |car|%>
-          <li><%= link_to "Car №:#{car.number}", car_path(car) %></li>
-        <% end %>
-      <% else %>
-        <% @train.cars.each  do |car|%>
-          <li><%= link_to "Car №:#{car.number}", car_path(car) %></li>
-        <% end %>
-      <% end %>
-    </ul>
+
+<ul>
+  <% if @orderedZ == "true" %>
+    <% @train.cars.orderedZ.each do |car|%>
+      <li><%= link_to "Car №:#{car.number}", car_path(car) %></li>
+    <% end %>
   <% else %>
-    The car is not assigned
+    <% @train.cars.each  do |car|%>
+      <li><%= link_to "Car №:#{car.number}", car_path(car) %></li>
+    <% end %>
   <% end %>
-  </p>
+</ul>
+</p>
+
+<%= link_to 'Add car', new_train_car_path(@train) %> |
 
 
 <%= link_to 'Edit', edit_train_path(@train) %> |

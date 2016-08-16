@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
-
+<h1>Car №<%= @car.number %></h1>
+<p>
+  Train №: <%= @car.train.number %>
+ </p>
 <p>
   <strong>Type:</strong>
   <%= @car.type %>
@@ -7,24 +10,20 @@
 <p>
   <strong>Seats info:</strong>
   <% if @car.type == 'CoupeCar' %>
-    <p> Car id:<%= @car.id%>
     <p> Amount top seats:<%= @car.amount_top_seats%>
     <p>Amount bottom seats:<%= @car.amount_bottom_seats%>
   <% elsif @car.type == 'EconomyCar'%>
-    <p> Car id:<%= @car.id%>
     <p> Amount top seats:<%= @car.amount_top_seats%>
     <p>Amount bottom seats:<%= @car.amount_bottom_seats%>
     <p> Amount side top seats:<%= @car.amount_side_top_seats%>
     <p>Amount side bottom seats:<%= @car.amount_side_bottom_seats%>
   <% elsif @car.type == 'SVCar'%>
-    <p> Car id:<%= @car.id%>
     <p>Amount bottom seats:<%= @car.amount_bottom_seats%>
   <% elsif @car.type == 'SittingCar'%>
-    <p> Car id:<%= @car.id%>
-    <p> Car №:<%= @car.number%>
     <p>Amount sitting seats:<%= @car.amount_sitting_seats%>
 <% end %>
 </p>
 
 <%= link_to 'Edit', edit_car_path(@car) %> |
-<%= link_to 'Back', cars_path %>
+<%= link_to 'Back', @car.train %>
+
