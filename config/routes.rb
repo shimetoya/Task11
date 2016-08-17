@@ -3,13 +3,15 @@ Rails.application.routes.draw do
 
   resources :trains do
     resources :cars, shallow: true
+    resources :tickets, shallow: true
+
   end
   resources :stations do
     patch :update_station_number, on: :member
   end
   resources :routes
-  resources :tickets
-  resource :search, only: [:new, :show, :edit]
+  resource :search, only: [:show]
+
 
 
 

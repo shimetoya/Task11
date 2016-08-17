@@ -13,8 +13,38 @@ class Route < ActiveRecord::Base
   before_validation :set_name
   before_save :station_number
 
+  def self.search(params)
+    self.find_by_sql([self.search_query, params[:start_station_id], params[:end_station_id]])
+  end
+
+  def start_station
+    self.stations.first
+  end
+
+  def end_station
+    self.stations.last
+  end
 
   private
+
+  def self.search_query
+    <<-SQL
+      SELECT * FROM routes WHERE
+        (SELECT station_id
+         FROM stations_routes
+         WHERE route_id = routes.id AND
+               station_number = (SELECT MIN(station_number)
+                           FROM stations_routes
+                           WHERE route_id = routes.id)) = ? AND
+        (SELECT station_id
+         FROM stations_routes
+         WHERE route_id = routes.id AND
+               station_number = (SELECT MAX(station_number)
+                           FROM stations_routes
+                           WHERE route_id = routes.id)) = ?
+    SQL
+  end
+
   def set_name
     self.title = "#{stations.first.title} - #{stations.last.title}"
   end
