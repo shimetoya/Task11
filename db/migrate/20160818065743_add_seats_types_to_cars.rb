@@ -8,7 +8,7 @@ class AddSeatsTypesToCars < ActiveRecord::Migration
     <<-SQL
       UPDATE Cars
        SET type = 'CoupeCar'
-       WHERE car_type = 'купе'
+       WHERE car_type = 'Купе'
     SQL
     <<-SQL
       UPDATE Cars
@@ -22,7 +22,7 @@ class AddSeatsTypesToCars < ActiveRecord::Migration
     add_column :cars, :car_type, :string
     <<-SQL
       UPDATE Cars
-       SET car_type = 'купе'
+       SET car_type = 'Купе'
        WHERE type = 'CoupeCar'
     SQL
     <<-SQL
