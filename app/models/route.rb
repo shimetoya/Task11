@@ -14,7 +14,7 @@ class Route < ActiveRecord::Base
   before_save :station_number
 
   def self.search(params)
-    self.find_by_sql([self.search_query, params[:start_station_id], params[:end_station_id]])
+    self.find_by_sql([self.search_query, params[:@start_station_title], params[:@end_station_title]])
   end
 
   def start_station
@@ -29,19 +29,8 @@ class Route < ActiveRecord::Base
 
   def self.search_query
     <<-SQL
-      SELECT * FROM routes WHERE
-        (SELECT station_id
-         FROM stations_routes
-         WHERE route_id = routes.id AND
-               station_number = (SELECT MIN(station_number)
-                           FROM stations_routes
-                           WHERE route_id = routes.id)) = ? AND
-        (SELECT station_id
-         FROM stations_routes
-         WHERE route_id = routes.id AND
-               station_number = (SELECT MAX(station_number)
-                           FROM stations_routes
-                           WHERE route_id = routes.id)) = ?
+      SELECT routes.id, title FROM routes INNER JOIN stations_routes ON routes.id = stations_routes.route_id
+        WHERE station_number = ? OR station_number = ?
     SQL
   end
 

@@ -11,22 +11,17 @@
       <%= f.text_field :passport_information %>
     </div>
 
-    <div class="field">
-      <%= f.label :train, "Train" %><br>
-      <%= f.collection_select :train_id, Train.all, :id, :number %>
-    </div>
+    <%= f.hidden_field :first_station_id, :value => @start_station_id %>
+    <%= f.hidden_field :last_station_id, :value => @end_station_id %>
+    <%= f.hidden_field :train_id, :value => @train.id %>
 
-    <div class="field">
-      <%= f.label :first_station, "First station" %><br>
-      <%= f.collection_select :first_station_id, Station.all, :id, :title %>
-    </div>
 
-    <div class="field">
-      <%= f.label :last_station, "Last station" %><br>
-      <%= f.collection_select :last_station_id, Station.all, :id, :title %>
-    </div>
+    <p> Train number:<%= @train.number %>
+    <p> First station:<%= @start_station_title %>
+    <p> Last station:<%= @end_station_title%>
 
     <div class="actions">
       <%= f.submit %>
     </div>
 <% end %>
+

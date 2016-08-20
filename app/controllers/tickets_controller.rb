@@ -11,6 +11,10 @@ class TicketsController < ApplicationController
 
   def new
     @ticket = Ticket.new
+    @start_station_title = Station.find(request.query_parameters['start_station_id']).title
+    @end_station_title = Station.find(request.query_parameters['end_station_id']).title
+    @start_station_id = request.query_parameters['start_station_id']
+    @end_station_id = request.query_parameters['end_station_id']
   end
 
   def edit
@@ -35,7 +39,7 @@ class TicketsController < ApplicationController
 
   def destroy
     @ticket.destroy
-    redirect_to train_tickets_path, notice: 'Ticket was successfully destroyed.'
+    redirect_to train_tickets_path(:train_id), notice: 'Ticket was successfully destroyed.'
   end
 
   private

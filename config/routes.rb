@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   resources :trains do
     resources :cars, shallow: true
     resources :tickets, shallow: true
-
   end
   resources :stations do
     patch :update_station_number, on: :member
