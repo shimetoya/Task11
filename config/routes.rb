@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
   get 'cars/index'
 
-  resources :trains
-  resources :stations
+  resources :trains do
+    resources :cars, shallow: true
+  end
+  resources :stations do
+    patch :update_station_number, on: :member
+  end
   resources :routes
-  resources :cars
   resources :tickets
+  resource :search, only: [:new, :show, :edit]
+
 
 
 

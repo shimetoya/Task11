@@ -11,7 +11,11 @@
   </thead>
 
   <tbody>
-  <%= render @cars %>
+
+  <% @cars.each do |car| %>
+    <%= render :partial => 'car', :locals => { :car => car } %>
+  <% end %>
+
   </tbody>
 </table>
 
