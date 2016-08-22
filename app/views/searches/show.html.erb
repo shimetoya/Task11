@@ -1,0 +1,37 @@
+<h1> Search </h1>
+<table>
+  <thead>
+  <tr>
+    <td width="100px"> Train number</td>
+    <td width="100px"> Route title</td>
+    <td width="120px"> Departure time first station</td>
+    <td width="120px"> Arrival time last station</td>
+    <td width="120px"> Tickets</td>
+  </tr>
+  </thead>
+  <tbody>
+<%= form_tag search_path, method: :get do %>
+  <br>
+  <%= select_tag :@start_station_, options_from_collection_for_select(@stations, :id, :title, params[:@start_station_])%>
+  <%= select_tag :@end_station_,options_from_collection_for_select(@stations, :id, :title, params[:@end_station_])%>
+  <%= submit_tag 'Search'%><p></p>
+<% end %>
+<%  if @routes.present? %>
+  <% @routes.each do |route| %>
+    <%  if route.trains.present? %>
+      <% route.trains.each do |train| %>
+        <tr>
+        <td><p></p><strong>Train #<%= train.number %></strong></td>
+        <td>(<%= route.title %>)</td>
+          <td> <%= datetime_field_tag :departure_time, route.stations.first.departure_time_in(route) %></td>
+          <td> <%= datetime_field_tag :arrival_time, route.stations.last.arrival_time_in(route) %></td>
+          <td> <%= link_to 'Buy ticket', new_train_ticket_path(train, first_station_id: params[:@start_station_], last_station_id: params[:@end_station_])%></td>
+  <% end %>
+    <% end %>
+  <% end %>
+<% elsif params[:@start_station_] && params[:@end_station_]%>
+  <p> Any train not found </p>
+<% end %>
+</tr>
+  </tbody>
+</table>
