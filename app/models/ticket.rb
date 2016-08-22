@@ -1,8 +1,5 @@
 class Ticket < ActiveRecord::Base
-  validates :fio, presence: true
-  validates :first_station, presence: true
-  validates :last_station, presence: true
-  validates :train, presence: true
+  validates :fio, :passport_information, :first_station,:last_station, :train, presence: true
 
   belongs_to :user
   belongs_to :train

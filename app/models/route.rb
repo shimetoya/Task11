@@ -26,7 +26,6 @@ class Route < ActiveRecord::Base
   end
 
   private
-
   def self.search_query
     <<-SQL
       SELECT routes.id, title FROM routes INNER JOIN stations_routes ON routes.id = stations_routes.route_id

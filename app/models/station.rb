@@ -32,5 +32,4 @@ class Station < ActiveRecord::Base
   def station_route(route)
     @station_route ||= stations_routes.where(route: route).first
   end
-
 end
