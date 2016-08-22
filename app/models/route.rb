@@ -28,13 +28,15 @@ class Route < ActiveRecord::Base
   private
   def self.search_query
     <<-SQL
-      SELECT routes.id, title FROM routes INNER JOIN stations_routes ON routes.id = stations_routes.route_id
+      SELECT DISTINCT routes.id, title FROM routes INNER JOIN stations_routes ON routes.id = stations_routes.route_id
         WHERE station_number = ? OR station_number = ?
     SQL
   end
 
   def set_name
-    self.title ||= "#{stations.first.title} - #{stations.last.title}"
+    if  self.title == nil || self.title.empty?
+      self.title = "#{stations.first.title} - #{stations.last.title}"
+    end
   end
 
   def stations_count
