@@ -14,7 +14,7 @@ class Route < ActiveRecord::Base
   before_save :station_number
 
   def self.search(params)
-    self.find_by_sql([self.search_query, params[:@start_station_title], params[:@end_station_title]])
+    self.find_by_sql([self.search_query, params[:start_station_id], params[:end_station_id]])
   end
 
   def start_station

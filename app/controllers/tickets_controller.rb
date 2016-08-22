@@ -10,11 +10,7 @@ class TicketsController < ApplicationController
   end
 
   def new
-    @ticket = Ticket.new
-    @start_station_title = Station.find(request.query_parameters['start_station_id']).title
-    @end_station_title = Station.find(request.query_parameters['end_station_id']).title
-    @start_station_id = request.query_parameters['start_station_id']
-    @end_station_id = request.query_parameters['end_station_id']
+    @ticket = Ticket.new(params.permit(:first_station_id, :last_station_id, :train_id))
   end
 
   def edit
