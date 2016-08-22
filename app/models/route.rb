@@ -28,8 +28,12 @@ class Route < ActiveRecord::Base
   private
   def self.search_query
     <<-SQL
-      SELECT DISTINCT routes.id, title FROM routes INNER JOIN stations_routes ON routes.id = stations_routes.route_id
-        WHERE station_number = ? OR station_number = ?
+    SELECT DISTINCT routes.* FROM routes
+      inner join stations_routes s1 on s1.route_id = routes.id
+      inner join stations_routes s2 on s2.route_id = routes.id
+        where s1.station_number < s2.station_number
+        and s1.station_id = ?
+        and s2.station_id = ?
     SQL
   end
 
