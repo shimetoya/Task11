@@ -34,7 +34,7 @@ class Route < ActiveRecord::Base
   end
 
   def set_name
-    self.title = "#{stations.first.title} - #{stations.last.title}"
+    self.title ||= "#{stations.first.title} - #{stations.last.title}"
   end
 
   def stations_count
