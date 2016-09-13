@@ -17,7 +17,7 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = @train.tickets.new(ticket_params)
+    @ticket = current_user.tickets.new(ticket_params)
     if @ticket.save
       redirect_to @ticket
     else
