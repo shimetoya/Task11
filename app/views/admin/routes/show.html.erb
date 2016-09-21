@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @route.title %>
+</p>
+<p>
+  <strong>List of trains:</strong>
+  <% if @route.trains.present? %>
+    <ol>
+      <% @route.trains.each do |train|%>
+          <li><%= train.number %></li>
+      <% end %>
+    </ol>
+  <% else %>
+      Not indicated
+  <% end %>
+</p>
+<p>
+  <strong>All station on the route:</strong>
+  <% if @route.stations.present? %>
+  <table>
+  <thead>
+  <tr>
+    <td width="30px"> ID</td>
+    <td width="100px"> Title</td>
+    <td>Station number</td>
+    <td>Arrival time</td>
+    <td>Departure time</td>
+  </tr>
+  </thead>
+  <tbody>
+    <% @route.stations.ordered.each do |station|%>
+
+      <% station.id %>
+      <tr>
+       <td>   <%= station.id %> </td>
+       <td>  <%= station.title %> </td>
+       <td>
+         <%= form_tag update_station_number_admin_station_path(station), method: :patch do %>
+           <%= number_field_tag :station_number, station.station_number_in(@route) %>
+           <%= hidden_field_tag :route_id, @route.id %>
+           <%= submit_tag "Change" %>
+         <% end %>
+       </td>
+        <td> <%= datetime_field_tag :arrival_time, station.arrival_time_in(@route) %></td>
+        <td> <%= datetime_field_tag :departure_time, station.departure_time_in(@route) %></td>
+      </tr>
+      <%end%>
+  </tbody>
+  </table>
+  <% else %>
+    Not indicated
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_admin_route_path(@route) %> |
+<%= link_to 'Back', admin_routes_path %>

@@ -1,0 +1,32 @@
+<h1> Search </h1>
+  <%= form_tag search_path, method: :get do %>
+    <%= select_tag :start_station_id, options_from_collection_for_select(@stations, :id, :title, params[:start_station_id])%>
+    <%= select_tag :end_station_id,options_from_collection_for_select(@stations, :id, :title, params[:end_station_id])%>
+    <%= submit_tag 'Search'%>
+<% end %>
+<table>
+  <thead>
+  <tr>
+    <td width="100px"> Train number</td>
+    <td width="150px"> Route title</td>
+    <td width="120px"> Tickets</td>
+  </tr>
+  </thead>
+  <tbody>
+    <%  if @routes.present? %>
+      <% @routes.each do |route| %>
+        <%  if route.trains.present? %>
+          <% route.trains.each do |train| %>
+            <tr><p></p>
+            <td><p></p><strong>Train #<%= train.number %></strong></td>
+            <td>(<%= route.title %>)</td>
+            <td> <%= link_to 'Buy ticket', new_admin_train_ticket_path(train, first_station_id: params[:start_station_id], last_station_id: params[:end_station_id])%></td>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% elsif params[:start_station_id] && params[:end_station_id]%>
+      <p> Any train not found </p>
+    <% end %>
+    </tr>
+  </tbody>
+</table>

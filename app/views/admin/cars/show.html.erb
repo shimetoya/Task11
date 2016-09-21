@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+<h1>Car №<%= @car.number %></h1>
+<p>
+  Train №: <%= @car.train.number %>
+ </p>
+<p>
+  <strong>Type:</strong>
+  <%= @car.type %>
+</p>
+<p>
+  <strong>Seats info:</strong>
+  <% if @car.type == 'CoupeCar' %>
+    <p> Amount top seats:<%= @car.amount_top_seats%>
+    <p>Amount bottom seats:<%= @car.amount_bottom_seats%>
+  <% elsif @car.type == 'EconomyCar'%>
+    <p> Amount top seats:<%= @car.amount_top_seats%>
+    <p>Amount bottom seats:<%= @car.amount_bottom_seats%>
+    <p> Amount side top seats:<%= @car.amount_side_top_seats%>
+    <p>Amount side bottom seats:<%= @car.amount_side_bottom_seats%>
+  <% elsif @car.type == 'SVCar'%>
+    <p>Amount bottom seats:<%= @car.amount_bottom_seats%>
+  <% elsif @car.type == 'SittingCar'%>
+    <p>Amount sitting seats:<%= @car.amount_sitting_seats%>
+<% end %>
+</p>
+
+<%= link_to 'Edit', edit_admin_car_path(@car) %> |
+<%= link_to 'Back', admin_trains_path %>
+

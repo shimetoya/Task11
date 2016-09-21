@@ -1,9 +1,14 @@
-<%= form_for(@ticket) do |f| %>
+<%= form_for [@train, @ticket] do |f| %>
     <%= render 'common/errors', resourse: @ticket %>
 
     <div class="field">
-      <%= f.label :Enter_your_full_name %><br>
+      <%= f.label :fio, "Enter your full name" %><br>
       <%= f.text_field :fio %>
+    </div>
+
+    <div class="field">
+      <%= f.label :passport_information, "Enter your passport information" %><br>
+      <%= f.text_field :passport_information %>
     </div>
 
     <div class="field">
