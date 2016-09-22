@@ -20,13 +20,16 @@
             <tr><p></p>
             <td><p></p><strong>Train #<%= train.number %></strong></td>
             <td>(<%= route.title %>)</td>
-            <td> <%= link_to 'Buy ticket', new_admin_train_ticket_path(train, first_station_id: params[:start_station_id], last_station_id: params[:end_station_id])%></td>
+              <% if user_signed_in? %>
+                <td>
+                  <%= link_to "Buy ticket", new_user_ticket_path(current_user, first_station_id: params[:start_station_id], last_station_id: params[:end_station_id], train_id: train.id) %>
+                </td>
+              <% end %>
           <% end %>
         <% end %>
       <% end %>
     <% elsif params[:start_station_id] && params[:end_station_id]%>
-      <p> Any train not found </p>
+      <td> Any train not found </td>
     <% end %>
-    </tr>
   </tbody>
 </table>

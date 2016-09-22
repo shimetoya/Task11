@@ -8,18 +8,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to 'Trains list', admin_trains_path %> | <%= link_to 'Station list', admin_stations_path %>
-| <%= link_to 'Route list', admin_routes_path %> | <%= link_to 'Search page', search_path %>
-
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+    <% if current_user.admin? %>
+      <%= link_to 'Trains list', admin_trains_path %> |
+      <%= link_to 'Station list', admin_stations_path %> |
+      <%= link_to 'Route list', admin_routes_path %> |
+      <%= link_to 'Tickets', admin_tickets_path %> |
+      <%= link_to 'Search page', search_path %>
+    <% else %>
+      <%= link_to 'Tickets', user_tickets_path(current_user) %> |
+      <%= link_to 'Search page', search_path %>
+    <% end %>
+  <% else %>
+    <%= link_to "Sign in", new_user_session_path %>
+  <% end %>
 
-<% if user_signed_in? %>
-  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-  <p> Hello <%= current_user.name %></p>
-<% else %>
-  <%= link_to "Sign in", new_user_session_path %>
-<% end %>
 
 <%= yield %>
 <p>"(с) 2016 Udovika Elena"</p>

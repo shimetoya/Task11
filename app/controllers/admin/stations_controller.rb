@@ -18,7 +18,7 @@ class Admin::StationsController < Admin::BaseController
   def create
     @station = Station.new(station_params)
     if @station.save
-      redirect_to @station, notice: 'Station was successfully created.'
+      redirect_to [:admin, @station], notice: 'Station was successfully created.'
     else
       render :new
     end
@@ -26,7 +26,7 @@ class Admin::StationsController < Admin::BaseController
 
   def update
     if @station.update(station_params)
-      redirect_to @station, notice: 'Station was successfully updated.'
+      redirect_to [:admin, @station], notice: 'Station was successfully updated.'
     else
       render :edit
     end
@@ -34,7 +34,7 @@ class Admin::StationsController < Admin::BaseController
 
   def destroy
     @station.destroy
-    redirect_to stations_url, notice: 'Station was successfully destroyed.'
+    redirect_to admin_stations_url, notice: 'Station was successfully destroyed.'
   end
 
   def update_station_number
