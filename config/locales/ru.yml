@@ -8,9 +8,11 @@ ru:
     slist: 'Список станций'
     rlist: 'Список маршрутов'
     tilist: 'Список билетов'
+    carlist: 'Список вагонов'
     search: 'Поиск'
     sout: 'Выйти'
     sin: 'Войти'
+    admin: 'Админка'
     errors: 'При заполнении формы возникли ошибки'
   admin:
     stations:
@@ -67,3 +69,66 @@ ru:
     tickets:
       form:
         submit: '%{action} билет'
+        create: 'Создать'
+      edit:
+        titleed: 'Редактировать билет'
+      show:
+      user_email: 'Билет купил'
+      fio: 'Полное имя'
+      passport_information: 'Паспортные данные'
+      train_number: 'Номер поезда'
+      first_station: 'Начальная станция'
+      last_station: 'Конечная станция'
+    cars:
+      form:
+        choose_cars_type: 'Выберите тип вагона'
+        SVCar: 'СВ'
+        coupecar: 'Купе'
+        economycar: 'Плацкарт'
+        sittingcar: 'Сидячий'
+        submit: '%{action} вагон'
+      edit:
+        choose_cars_type: 'Выберите тип вагона'
+        SVCar: 'СВ'
+        coupecar: 'Купе'
+        economycar: 'Плацкарт'
+        sittingcar: 'Сидячий'
+        titleed: 'Редактировать вагон'
+        submit: '%{action} вагон'
+        train: 'Поезд'
+      new:
+        title: 'Вагон'
+      show:
+        car_number: 'Вагон №'
+        train_number: 'Поезд №'
+        type: 'Тип'
+        seats_info: 'Информация о местах'
+        amount_top_seats: 'Количество верхних мест'
+        amount_bottom_seats: 'Количество нижних мест'
+        amount_side_top_seats: 'Количество боковых верхних мест'
+        amount_side_bottom_seats: 'Количество боковых нижних мест'
+        amount_sitting_seats: 'Количество сидячих мест'
+
+  tickets:
+    new:
+      title: 'Билет'
+    form:
+      submit: '%{action} билет'
+      create: 'Создать'
+    edit:
+      titleed: 'Редактировать билет'
+    show:
+      user_email: 'Билет купил'
+      fio: 'Полное имя'
+      passport_information: 'Паспортные данные'
+      train_number: 'Номер поезда'
+      first_station: 'Начальная станция'
+      last_station: 'Конечная станция'
+  searches:
+    show:
+      train_number: 'Номер поезда'
+      route_name: 'Название маршрута'
+      tickets: 'Билеты'
+      number: 'Поезд №'
+      not_found: 'Не найден ни один поезд'
+      buy_ticket: 'Купить билет'

@@ -1,11 +1,21 @@
 <%= form_for [:admin, @train, @car] do |f| %>
 
   <%= render 'common/errors', resourse: @car %>
-  <strong>Choose cars type:</strong> <p></p>
-  <a href="new?type=SVCar" ><b>SVCar</b></a> OR
-  <a href="new?type=CoupeCar" ><b>CoupeCar</b></a> OR
-  <a href="new?type=EconomyCar" ><b>EconomyCar</b></a> OR
-  <a href="new?type=SittingCar" ><b>SittingCar</b></a>
+    <div class="row">
+      <strong><%=t('.choose_cars_type')%></strong> <p></p>
+      <div class="col-md-3">
+        <a href="new?type=SVCar", class= 'form-control'><b><%=t('.SVCar')%></b></a>
+      </div>
+      <div class="col-md-3">
+        <a href="new?type=CoupeCar", class= 'form-control' ><b><%=t('.coupecar')%></b></a>
+      </div>
+      <div class="col-md-3">
+        <a href="new?type=EconomyCar", class= 'form-control' ><b><%=t('.economycar')%></b></a>
+      </div>
+      <div class="col-md-3">
+        <a href="new?type=SittingCar", class= 'form-control' ><b><%=t('.sittingcar')%></b></a>
+      </div>
+    </div>
   <p></p>
   <% if @type == 'CoupeCar' %>
     <%= f. text_field :type, :value => CoupeCar.name%>
@@ -48,5 +58,7 @@
     </div>
   <% end %>
   <%= hidden_field_tag :number, @train.number %>
-  <%= submit_tag 'Create' %>
+    <div class="actions">
+      <%= f.submit t('.submit', action: @car.new_record? ? 'Создать' : 'Изменить') %>
+    </div>
 <% end %>

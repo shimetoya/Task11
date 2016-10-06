@@ -1,31 +1,31 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Full name:</strong>
+  <strong><%= t('.fio') %></strong>
   <%= @ticket.fio %>
 </p>
 
 <p>
-  <strong>Passport information:</strong>
+  <strong><%= t('.passport_information') %></strong>
   <%= @ticket.passport_information %>
 </p>
 
 <p>
-  <strong>Number of train:</strong>
+  <strong><%= t('.train_number') %></strong>
   <%= @ticket.train.number %>
 </p>
 
 <p>
-  <strong>First station:</strong>
+  <strong><%= t('.first_station') %></strong>
     <%= @ticket.first_station.title %>
 </p>
 
 <p>
-  <strong>Last station:</strong>
+  <strong><%= t('.last_station') %></strong>
     <%= @ticket.last_station.title %>
 </p>
 
 
-<%= link_to 'Edit', edit_admin_ticket_path(@ticket) %> |
-<%= link_to 'Search', search_path %> |
-<%= link_to 'Ticket list', admin_tickets_path%>
+<%= link_to t('common.edit'), edit_admin_ticket_path(@ticket) %> |
+<%= link_to t('common.search'), search_path %> |
+<%= link_to t('common.tilist'), admin_tickets_path%>

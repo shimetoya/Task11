@@ -1,29 +1,29 @@
 <p id="notice"><%= notice %></p>
-<h1>Car №<%= @car.number %></h1>
+<h1><%=t('.car_number')%><%= @car.number %></h1>
 <p>
-  Train №: <%= @car.train.number %>
+  <%=t('.train_number')%> <%= @car.train.number %>
  </p>
 <p>
-  <strong>Type:</strong>
+  <strong> <%=t('.type')%></strong>
   <%= @car.type %>
 </p>
 <p>
-  <strong>Seats info:</strong>
+  <strong><%=t('.seats_info')%></strong>
   <% if @car.type == 'CoupeCar' %>
-    <p> Amount top seats:<%= @car.amount_top_seats%>
-    <p>Amount bottom seats:<%= @car.amount_bottom_seats%>
+    <p><%=t('.amount_top_seats')%> <%= @car.amount_top_seats%>
+    <p><%=t('.amount_bottom_seats')%> <%= @car.amount_bottom_seats%>
   <% elsif @car.type == 'EconomyCar'%>
-    <p> Amount top seats:<%= @car.amount_top_seats%>
-    <p>Amount bottom seats:<%= @car.amount_bottom_seats%>
-    <p> Amount side top seats:<%= @car.amount_side_top_seats%>
-    <p>Amount side bottom seats:<%= @car.amount_side_bottom_seats%>
+    <p><%=t('.amount_top_seats')%> <%= @car.amount_top_seats%>
+    <p><%=t('.amount_bottom_seats')%> <%= @car.amount_bottom_seats%>
+    <p><%=t('.amount_side_top_seats')%> <%= @car.amount_side_top_seats%>
+    <p><%=t('.amount_side_bottom_seats')%> <%= @car.amount_side_bottom_seats%>
   <% elsif @car.type == 'SVCar'%>
-    <p>Amount bottom seats:<%= @car.amount_bottom_seats%>
+    <p><%=t('.amount_bottom_seats')%> <%= @car.amount_bottom_seats%>
   <% elsif @car.type == 'SittingCar'%>
-    <p>Amount sitting seats:<%= @car.amount_sitting_seats%>
+    <p><%=t('.amount_sitting_seats')%> <%= @car.amount_sitting_seats%>
 <% end %>
 </p>
 
-<%= link_to 'Edit', edit_admin_car_path(@car) %> |
-<%= link_to 'Back', admin_trains_path %>
+<%= link_to t('common.edit'), edit_admin_car_path(@car) %> |
+<%= link_to t('common.back'), admin_trains_path %>
 
