@@ -1,17 +1,13 @@
 <p id="notice"><%= notice %></p>
 <p>
-  <strong>ID:</strong>
-  <%= @station.id %>
-</p>
-<p>
-  <strong>Title:</strong>
+  <strong><%=t('.title')%></strong>
   <%= @station.title %>
 </p>
 
 <% if @station.routes.empty? %>
-    <p> Station is not included in any route</p>
+    <p> <%=t('.error')%> </p>
 <% else %>
-    <p> Station enters the following routes:</p>
+    <p> <%=t('.station_in_routes')%></p>
     <ul>
       <% @station.routes.each do |route| %>
       <li> <%= route.title %></li>
@@ -19,5 +15,5 @@
     </ul>
 <% end %>
 
-<%= link_to 'Edit', edit_admin_station_path(@station) %> |
-<%= link_to 'Back', admin_stations_path %>
+<%= link_to t('common.edit'), edit_admin_station_path(@station) %> |
+<%= link_to t('common.back'), admin_stations_path %>

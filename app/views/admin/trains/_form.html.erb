@@ -6,14 +6,14 @@
     <%= f.text_field :number %>
   </div>
   <div class="field">
-    <%= f.label :current_station, "Current station" %><br>
+    <%= f.label :current_station %><br>
     <%= f.collection_select :current_station_id, Station.all, :id, :title %>
   </div>
   <div class="field">
-    <%= f.label :current_route, "Current route" %><br>
+    <%= f.label :current_route %><br>
     <%= f.collection_select :route_id, Route.all, :id, :title %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit t('.submit', action: @train.new_record? ? 'Создать' : 'Изменить') %>
   </div>
 <% end %>

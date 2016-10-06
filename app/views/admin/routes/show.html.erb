@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong><%=t('.title')%></strong>
   <%= @route.title %>
 </p>
 <p>
-  <strong>List of trains:</strong>
+  <strong><%=t('.list_of_trains')%></strong>
   <% if @route.trains.present? %>
     <ol>
       <% @route.trains.each do |train|%>
@@ -13,34 +13,30 @@
       <% end %>
     </ol>
   <% else %>
-      Not indicated
+    <%=t('.not_indicated')%>
   <% end %>
 </p>
 <p>
-  <strong>All station on the route:</strong>
+  <strong><%=t('.all_station_on_the_route')%></strong>
   <% if @route.stations.present? %>
   <table>
   <thead>
   <tr>
-    <td width="30px"> ID</td>
-    <td width="100px"> Title</td>
-    <td>Station number</td>
-    <td>Arrival time</td>
-    <td>Departure time</td>
+    <td width="100px"> <%=t('.title')%></td>
+    <td><%=t('.station_number')%> </td>
+    <td><%=t('.arrival_time')%></td>
+    <td><%=t('.departure_time')%></td>
   </tr>
   </thead>
   <tbody>
     <% @route.stations.ordered.each do |station|%>
-
-      <% station.id %>
       <tr>
-       <td>   <%= station.id %> </td>
        <td>  <%= station.title %> </td>
        <td>
          <%= form_tag update_station_number_admin_station_path(station), method: :patch do %>
            <%= number_field_tag :station_number, station.station_number_in(@route) %>
            <%= hidden_field_tag :route_id, @route.id %>
-           <%= submit_tag "Change" %>
+           <%= submit_tag t('.change') %>
          <% end %>
        </td>
         <td> <%= datetime_field_tag :arrival_time, station.arrival_time_in(@route) %></td>
@@ -50,9 +46,9 @@
   </tbody>
   </table>
   <% else %>
-    Not indicated
+    <%=t('.not_indicated')%>
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_admin_route_path(@route) %> |
-<%= link_to 'Back', admin_routes_path %>
+<%= link_to t('common.edit'), edit_admin_route_path(@route) %> |
+<%= link_to t('common.back'), admin_routes_path %>

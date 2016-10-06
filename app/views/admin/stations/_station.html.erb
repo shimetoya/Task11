@@ -1,7 +1,7 @@
 <tr>
   <td><%= station.id %></td>
   <td><%= station.title %></td>
-  <td><%= link_to 'Show', [:admin, station] %></td>
-  <td><%= link_to 'Edit', edit_admin_station_path(station) %></td>
-  <td><%= link_to 'Destroy', [:admin, station], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <td><%= link_to t('common.show'), [:admin, station] %></td>
+  <td><%= link_to t('common.edit'), edit_admin_station_path(station) %></td>
+  <td><%= link_to t('common.destroy'), [:admin, station], method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </tr>
