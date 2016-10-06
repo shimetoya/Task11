@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "search#show"
-  resources :tickets
+  resources :user do
+    resources :tickets, shallow: true
+  end
   resource :search, only: [:show]
 
   namespace :admin do
+    resources :tickets, except: [:new, :create]
     resources :trains do
       resources :cars, shallow: true
-      resources :tickets, shallow: true
     end
     resources :stations do
       patch :update_station_number, on: :member
@@ -15,7 +16,8 @@ Rails.application.routes.draw do
     resources :routes
   end
 
-
+  get 'welcome/index'
+  root 'searches#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
