@@ -1,12 +1,12 @@
-<h1>Editing Car</h1>
-<%= form_for([@car.becomes(Car)]) do |f| %>
+<h1><%= t('.titleed') %></h1>
+<%= form_for([:admin, @car.becomes(Car)]) do |f| %>
     <% f.object = @car.becomes(@car.class)%>
     <%= render 'common/errors', resourse: @car %>
-    <strong>Choose cars type:</strong> <p></p>
-    <a href= "/cars/<%=@car.id%>/edit?type=SVCar" ><b>SVCar</b></a> OR
-    <a href="/cars/<%=@car.id%>/edit?type=CoupeCar" ><b>CoupeCar</b></a> OR
-    <a href="/cars/<%=@car.id%>/edit?type=EconomyCar" ><b>EconomyCar</b></a> OR
-    <a href="/cars/<%=@car.id%>/edit?type=SittingCar" ><b>SittingCar</b></a>
+    <strong><%=t('.choose_cars_type')%></strong> <p></p>
+    <a href= "/admin/cars/<%=@car.id%>/edit?type=SVCar", class= 'form-control'><b><%=t('.SVCar')%></b></a>
+    <a href="/admin/cars/<%=@car.id%>/edit?type=CoupeCar", class= 'form-control' ><b><%=t('.coupecar')%></b></a>
+    <a href="/admin/cars/<%=@car.id%>/edit?type=EconomyCar", class= 'form-control' ><b><%=t('.economycar')%></b></a>
+    <a href="/admin/cars/<%=@car.id%>/edit?type=SittingCar", class= 'form-control' ><b><%=t('.sittingcar')%></b></a>
     <p></p>
     <% if @type == 'CoupeCar' %>
         <%= f. text_field :type, :value => CoupeCar.name%>
@@ -49,12 +49,12 @@
         </div>
     <% end %>
     <div class="field">
-      <%= f.label :train, "Train" %><br>
+      <%= f.label :train , t('.train')%><br>
       <%= f.collection_select :train_id, Train.all, :id, :number %>
     </div>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit t('.submit', action: @car.new_record? ? 'Создать' : 'Изменить') %>
     </div>
 <% end %>
 
-<%= link_to 'Back',  admin_train_path(@train) %>
+<%= link_to t('common.back'),  admin_trains_path %>

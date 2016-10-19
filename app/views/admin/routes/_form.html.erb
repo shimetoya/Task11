@@ -5,10 +5,10 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :station_ids, "Station list" %>
+    <%= f.label :station_ids %>
     <%= f.collection_select :station_ids, Station.all, :id, :title, {}, { multiple: true } %>
   </div>
   <div class="actions">
-    <%= f.submit "#{ @route.new_record? ? 'Create Route' : 'Update Route'}"%>
+    <%= f.submit t('.submit', action: @route.new_record? ? 'Создать' : 'Изменить') %>
   </div>
 <% end %>

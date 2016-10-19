@@ -29,7 +29,7 @@ class Admin::CarsController < Admin::BaseController
 
   def update
     if @car.update(car_params)
-      redirect_to @car, notice: 'Car was successfully updated.'
+      redirect_to admin_train_path(@train), notice: 'Car was successfully updated.'
     else
       render :edit
     end

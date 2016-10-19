@@ -2,12 +2,12 @@
     <%= render 'common/errors', resourse: @ticket %>
 
     <div class="field">
-      <%= f.label :fio, "Enter your full name" %><br>
+      <%= f.label :fio %><br>
       <%= f.text_field :fio %>
     </div>
 
     <div class="field">
-      <%= f.label :passport_information, "Enter your passport information" %><br>
+      <%= f.label :passport_information %><br>
       <%= f.text_field :passport_information %>
     </div>
 
@@ -16,6 +16,6 @@
     <%= f.hidden_field :train_id, :value => @train_id %>
 
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit t('.create' ) %>
     </div>
 <% end %>

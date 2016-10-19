@@ -1,0 +1,134 @@
+ru:
+  common:
+    back: 'Назад'
+    show: 'Показать'
+    edit: 'Редактировать'
+    destroy: 'Удалить'
+    tlist: 'Список поездов'
+    slist: 'Список станций'
+    rlist: 'Список маршрутов'
+    tilist: 'Список билетов'
+    carlist: 'Список вагонов'
+    search: 'Поиск'
+    sout: 'Выйти'
+    sin: 'Войти'
+    admin: 'Админка'
+    errors: 'При заполнении формы возникли ошибки'
+  admin:
+    stations:
+      index:
+        title: 'Название'
+        new: 'Создать станцию'
+      new:
+        title: 'Новая станция'
+      edit:
+        titleed: 'Редактировать станцию'
+      form:
+        submit: '%{action} станцию'
+      show:
+        title: 'Название'
+        error: 'Станция не включена ни в один маршрут'
+        station_in_routes: 'Станция входит в следующие маршруты'
+    routes:
+      index:
+        title: 'Название'
+        new: 'Создать маршрут'
+      new:
+        title: 'Новый маршрут'
+      edit:
+        titleed: 'Редактировать маршрут'
+      form:
+        submit: '%{action} маршрут'
+      show:
+        title: 'Название'
+        list_of_trains: 'Список поездов'
+        not_indicated: 'Не найден'
+        all_station_on_the_route: 'Все станции маршрута'
+        station_number: 'Номер станции'
+        arrival_time: 'Время прибытия'
+        departure_time: 'Время отправления'
+        change: 'Изменить'
+    trains:
+      new:
+        title: 'Новый поезд'
+      edit:
+        titleed: 'Редактировать поезд'
+      form:
+        submit: '%{action} поезд'
+      index:
+        new: 'Создать поезд'
+        number: 'Номер'
+      show:
+        number: 'Номер'
+        on_station: 'На станции:'
+        not_indicated: 'Не найден'
+        on_route: 'На маршруте:'
+        train_tail: 'С хвоста'
+        cars_info: 'Информация о вагонах:'
+        add_car: 'Добавить вагон'
+    tickets:
+      form:
+        submit: '%{action} билет'
+        create: 'Создать'
+      edit:
+        titleed: 'Редактировать билет'
+      show:
+      user_email: 'Билет купил'
+      fio: 'Полное имя'
+      passport_information: 'Паспортные данные'
+      train_number: 'Номер поезда'
+      first_station: 'Начальная станция'
+      last_station: 'Конечная станция'
+    cars:
+      form:
+        choose_cars_type: 'Выберите тип вагона'
+        SVCar: 'СВ'
+        coupecar: 'Купе'
+        economycar: 'Плацкарт'
+        sittingcar: 'Сидячий'
+        submit: '%{action} вагон'
+      edit:
+        choose_cars_type: 'Выберите тип вагона'
+        SVCar: 'СВ'
+        coupecar: 'Купе'
+        economycar: 'Плацкарт'
+        sittingcar: 'Сидячий'
+        titleed: 'Редактировать вагон'
+        submit: '%{action} вагон'
+        train: 'Поезд'
+      new:
+        title: 'Вагон'
+      show:
+        car_number: 'Вагон №'
+        train_number: 'Поезд №'
+        type: 'Тип'
+        seats_info: 'Информация о местах'
+        amount_top_seats: 'Количество верхних мест'
+        amount_bottom_seats: 'Количество нижних мест'
+        amount_side_top_seats: 'Количество боковых верхних мест'
+        amount_side_bottom_seats: 'Количество боковых нижних мест'
+        amount_sitting_seats: 'Количество сидячих мест'
+
+  tickets:
+    new:
+      title: 'Билет'
+    form:
+      submit: '%{action} билет'
+      create: 'Создать'
+    edit:
+      titleed: 'Редактировать билет'
+    show:
+      user_email: 'Билет купил'
+      fio: 'Полное имя'
+      passport_information: 'Паспортные данные'
+      train_number: 'Номер поезда'
+      first_station: 'Начальная станция'
+      last_station: 'Конечная станция'
+  searches:
+    show:
+      train_number: 'Номер поезда'
+      route_name: 'Название маршрута'
+      tickets: 'Билеты'
+      number: 'Поезд №'
+      not_found: 'Не найден ни один поезд'
+      buy_ticket: 'Купить билет'

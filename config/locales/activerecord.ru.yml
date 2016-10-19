@@ -1,0 +1,38 @@
+ru:
+  activerecord:
+    models:
+      station: 'Станция'
+      train: 'Поезд'
+      ticket: 'Билет'
+      route: 'Маршрут'
+      car: 'Вагон'
+      coupe_car: 'Купе'
+      economy_car: 'Плацкарт'
+      sitting_car: 'Сидячий'
+      sv_car: 'СВ'
+      user: 'Пользователь'
+    attributes:
+      station:
+        title: 'Название'
+      train:
+        number: 'Номер'
+        current_station: 'Текущая станция'
+        current_route: 'Текущий маршрут'
+      route:
+        title: 'Название'
+        station_ids: 'Список станций'
+      ticket:
+        fio: 'Введите Ваше ФИО'
+        passport_information: 'Паспортные данные'
+        train: 'Поезд'
+        first_station: 'Начальная станция'
+        last_station: 'Конечная станция'
+      car:
+        amount_top_seats: 'Количество верхних мест'
+        amount_bottom_seats: 'Количество нижних мест'
+        amount_side_top_seats: 'Количество боковых верхних мест'
+        amount_side_bottom_seats: 'Количество боковых нижних мест'
+        amount_sitting_seats: 'Количество сидячих мест'
+    errors:
+      messages:
+        blank: 'не может быть пустым'
