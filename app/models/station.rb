@@ -1,11 +1,6 @@
 class Station < ActiveRecord::Base
   validates :title, presence: true
   has_many :trains, foreign_key: :current_station_id
-=begin
-  has_many :tickets
-  has_many :trains
-=end
-  #has_and_belongs_to_many :routes
   has_many :stations_routes
   has_many :routes, through: :stations_routes
   scope :ordered, -> {joins(:stations_routes).order("stations_routes.station_number").uniq}
