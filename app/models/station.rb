@@ -3,7 +3,7 @@ class Station < ActiveRecord::Base
   has_many :trains, foreign_key: :current_station_id
   has_many :stations_routes
   has_many :routes, through: :stations_routes
-  scope :ordered, -> {joins(:stations_routes).order("stations_routes.station_number").uniq}
+  scope :ordered, -> { select('stations.*, stations_routes.station_number').joins(:stations_routes).order("stations_routes.station_number").uniq }
 
   def update_station_number(route, station_number)
     station_route = station_route(route)
