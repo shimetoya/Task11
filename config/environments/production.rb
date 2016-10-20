@@ -77,5 +77,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: "адрес приложения"}
+  config.action_mailer.default_url_options = { host: "enigmatic-headland-77136.herokuapp.com"}
+  config.action_mailer.delivery_method = :postmark
+  config.action_mailer.postmark_settings = {api_token: ENV['POSTMARK_API_TOKEN'] }
 end
