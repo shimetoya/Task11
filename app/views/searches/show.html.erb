@@ -10,7 +10,7 @@
       <%= select_tag :end_station_id,options_from_collection_for_select(@stations, :id, :title, params[:end_station_id]),  class: 'form-control'%>
     </div>
     <div class="col-md-4">
-      <%= submit_tag t('common.search'), class: 'btn btn-primary' %>
+      <%= submit_tag t('common.search'), class: 'btn btn-primary find' %>
     </div>
 <% end %>
 </div>
