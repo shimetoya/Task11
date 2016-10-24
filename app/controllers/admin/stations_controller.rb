@@ -26,7 +26,7 @@ class Admin::StationsController < Admin::BaseController
 
   def update
     if @station.update(station_params)
-      redirect_to [:admin, @station], notice: 'Station was successfully updated.'
+      redirect_to admin_stations_path, notice: 'Station was successfully updated.'
     else
       render :edit
     end

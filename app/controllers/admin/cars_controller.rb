@@ -29,7 +29,7 @@ class Admin::CarsController < Admin::BaseController
 
   def update
     if @car.update(car_params)
-      redirect_to admin_train_path(@train), notice: 'Car was successfully updated.'
+      redirect_to admin_car_path(@car), notice: 'Car was successfully updated.'
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class Admin::CarsController < Admin::BaseController
 
   def destroy
     @car.destroy
-    redirect_to cars_path, notice: 'Car was successfully destroyed.'
+    redirect_to admin_cars_path, notice: 'Car was successfully destroyed.'
   end
 
   private

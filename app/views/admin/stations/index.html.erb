@@ -12,7 +12,23 @@
   </thead>
 
   <tbody>
+<!--
   <%= render @stations %>
+-->
+
+  <% @stations.each do |station| %>
+      <tr>
+        <td>
+          <div id="station_title_<%= station.id %>">
+            <%= station.title %>
+          </div>
+          <%= render 'form', station: station, hidden: true %>
+        </td>
+        <td><%= link_to t('common.show'), [:admin, station] %></td>
+        <td><%= link_to t('common.edit'), '', class: 'edit_station', data: { station_id: station.id} %></td>
+        <td><%= link_to t('common.destroy'), [:admin, station], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
   </tbody>
 </table>
 

@@ -1,5 +1,5 @@
-<%= form_for [:admin, @route] do |f| %>
-  <%= render 'common/errors', resourse: @route %>
+<%= form_for [:admin, route], html: { style: "display: #{hidden ? 'none' : 'block'}" } do |f| %>
+  <%= render 'common/errors', resourse: route %>
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
@@ -9,6 +9,6 @@
     <%= f.collection_select :station_ids, Station.all, :id, :title, {}, { multiple: true } %>
   </div>
   <div class="actions">
-    <%= f.submit t('.submit', action: @route.new_record? ? 'Создать' : 'Изменить') %>
+    <%= f.submit t('.submit', action: route.new_record? ? 'Создать' : 'Изменить') %>
   </div>
 <% end %>
